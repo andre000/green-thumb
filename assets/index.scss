@@ -1,0 +1,17 @@
+@import './utils/mixins';
+@import './utils/helpers';
+@import './components/hero';
+@import './components/filter';
+@import './components/results';
+@import './components/message';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color:#75BC97;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}

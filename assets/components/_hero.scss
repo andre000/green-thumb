@@ -1,0 +1,112 @@
+.hero {
+  --animation-duration: .7s;
+  --animation-delay-1: .5s;
+  --animation-delay-2: 1s;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  justify-content: space-between;
+  position: relative;
+
+  @include breakpoint-up {
+    height: 500px;
+    min-height: inherit;
+    flex-direction: row;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  &__logo {
+    animation: fade-down var(--animation-duration);
+  }
+
+  &__top {
+    padding: 34px;
+    position: relative;
+    z-index: 10;
+    @include breakpoint-up {
+      max-width: 400px;
+    }
+  }
+
+  &__text {
+    animation: fade-down var(--animation-duration) var(--animation-delay-1) forwards;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 49px;
+    opacity: 0;
+    @include breakpoint-up {
+      font-size: 70px;
+      line-height: 85px
+    }
+  }
+
+  &__arrow {
+    opacity: 0;
+    animation: fade-down var(--animation-duration) var(--animation-delay-2) forwards 1;
+  }
+
+  &__person {
+    display: block;
+    height: auto;
+    padding: 25px 22px;
+    position: relative;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      @include breakpoint-up {
+        height: 428px;
+        width: auto;
+      }
+    }
+  }
+
+  &__leaves {
+    height: auto;
+    left: 0;
+    position: absolute;
+    // Freezes the ratio as the same from 320px 
+    // screen by sacrificing its height 
+    top: Min(calc(-100vw + 320px), 0px);
+    width: 100%;
+    z-index: 5;
+    @include hide-md;
+
+    &__right,
+    &__left {
+      height: 100%;
+      position: absolute;
+      z-index: 5;
+      @include show-md;
+    }
+
+    &__left {
+      // Freezes the ratio as the same from 1440px
+      // screen by sacrificing its width 
+      left: Min(calc(100vw - 1445px), 0px);
+      width: 862px;
+    }
+
+    &__right {
+      // Freezes the ratio as the same from 1440px
+      // screen by sacrificing its width 
+      right: Min(calc(100vw - 1445px), 0px); 
+      width: 361px;
+    }
+  }
+
+  @keyframes fade-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}

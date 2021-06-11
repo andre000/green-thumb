@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Front End Test - Greenthumb</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/index.scss" />
+  </head>
+  <body>
+    <header class="hero">
+      <img
+        src="images/hero/mobile/mobile-leaves.png"
+        alt="Leaves"
+        class="hero__leaves"
+      />
+      <img
+        src="images/hero/desktop/left-leaves.png"
+        alt="Leaves"
+        class="hero__leaves__left"
+      />
+      <img
+        src="images/hero/desktop/right-leaves.png"
+        alt="Leaves"
+        class="hero__leaves__right"
+      />
+      <div class="hero__top">
+        <img
+          src="images/icons/logo-white.svg"
+          alt="Greenthumb"
+          class="hero__logo"
+        />
+        <h1 class="hero__text">
+          Find your next green friend
+        </h1>
+        <a href="#filter-sunlight" class="hero__arrow">
+          <img src="./images/icons/arrow-down-2.svg" alt="Arrow down" />
+        </a>
+      </div>
+
+      <picture class="hero__person">
+        <source
+          srcset="images/hero/desktop/plantperson.png"
+          media="(min-width: 848px)"
+        />
+        <img
+          src="images/hero/mobile/mobile-plantperson.png"
+          alt="Person holding a plant"
+        />
+      </picture>
+    </header>
+
+    <form class="filter">
+      <div class="filter__group" id="filter-sunlight">
+        <img
+          class="filter__icon"
+          src="images/illustrations/sun.png"
+          alt="Sun with glasses"
+        />
+        <p class="filter__label">
+          <b>1.</b> Set the amount of the <b>sunlight</b> your plant will get.
+        </p>
+        <select name="sun" class="filter__select" data-next="#filter-water">
+          <option value="">Select...</option>
+          <option value="no">No sunlight</option>
+          <option value="low">Low sunlight</option>
+          <option value="high">High sunlight</option>
+        </select>
+      </div>
+      <div class="filter__group" id="filter-water">
+        <img
+          class="filter__icon"
+          src="images/illustrations/wateringcan.png"
+          alt="Watering can"
+        />
+        <p class="filter__label">
+          <b>2.</b> How often do you want to <b>water</b> your plant?
+        </p>
+        <select name="water" class="filter__select" data-next="#filter-pets">
+          <option value="">Select...</option>
+          <option value="rarely">Rarely</option>
+          <option value="daily">Daily</option>
+          <option value="regularly">Regularly</option>
+        </select>
+      </div>
+      <div class="filter__group" id="filter-pets">
+        <img
+          class="filter__icon"
+          src="images/illustrations/dog.png"
+          alt="Brown dog"
+        />
+        <p class="filter__label">
+          <b>3.</b> Do you have pets? Do they <b>chew</b> plants?
+        </p>
+        <select name="pets" class="filter__select" data-next="#results">
+          <option value="">Select...</option>
+          <option value="false">No/They don’t care</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+    </form>
+
+    <main class="results" id="results">
+      <div class="results__empty">
+        <div>
+          <h2 class="results__empty__title">
+            No results yet...
+          </h2>
+          <p class="results__empty__message">
+            Use the filters above to find the plan that best fits your
+            environment :)
+          </p>
+        </div>
+        <img
+          class="results__empty__image"
+          src="./images/illustrations/no-results.png"
+          alt="Vase with a question mark"
+        />
+      </div>
+      <div class="results__list hide">
+        <img
+          class="results__list__image"
+          src="./images/illustrations/pick.png"
+          alt="Hand picking a branch"
+        />
+        <h2 class="results__list__title">
+          Our picks for you
+        </h2>
+        <div class="results__list__list"></div>
+        <a class="results__button" href="#filter-sunlight">
+          <img
+            src="./images/icons/arrow-up-2.svg"
+            alt="Arrow up"
+            height="18px"
+          />
+          back to the top
+        </a>
+      </div>
+    </main>
+
+    <script src="./src/index.js"></script>
+  </body>
+</html>

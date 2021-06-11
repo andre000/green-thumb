@@ -1,0 +1,40 @@
+.message {
+  --delay: 5s;
+  bottom: 0;
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+  &.info {
+    background: #15573F;
+    color: #ffffff;
+  }
+  &.error {
+    background: #FD9872;
+    color: #ffffff;
+  }
+
+  &::before {
+    animation: bar var(--delay) ease-in-out forwards;
+    display: block;
+    content: ' ';
+    height: 5px;
+    width: 100%;
+    background: #fff6;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @keyframes bar {
+    0% {
+      width: 100%
+    }
+    100% {
+      width: 0%;
+    }
+  }
+}
